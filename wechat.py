@@ -31,11 +31,11 @@ def index():
 
     if request.method == 'POST':
         xml_data = et.fromstring(request.args)
-        ToUserName = xml_rec.find('ToUserName').text
-        fromUser = xml_rec.find('FromUserName').text
-        MsgType = xml_rec.find('MsgType').text
-        Content = xml_rec.find('Content').text
-        MsgId = xml_rec.find('MsgId').text
+        ToUserName = xml_data.find('ToUserName').text
+        fromUser = xml_data.find('FromUserName').text
+        MsgType = xml_data.find('MsgType').text
+        Content = xml_data.find('Content').text
+        MsgId = xml_data.find('MsgId').text
         print(ToUserName,fromUser,Content,MsgId)
 
         res = '''<xml>
