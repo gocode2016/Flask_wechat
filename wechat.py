@@ -20,7 +20,7 @@ def index():
         signature = data['signature']
 
         l = [timestamp,nonce,echostr].sort()
-        mes = l[0]+l[1]+l[2]
+        mes = ''.join(l)
         sha1 = hashlib.sha1(mes).hexdigest()
         if sha1 == signature :
             return echostr
