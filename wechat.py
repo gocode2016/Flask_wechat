@@ -30,7 +30,7 @@ def index():
             return ''
 
     if request.method == 'POST':
-        xml_data = et.fromstring(request.args)
+        xml_data = et.fromstring(request.data)
         ToUserName = xml_data.find('ToUserName').text
         fromUser = xml_data.find('FromUserName').text
         MsgType = xml_data.find('MsgType').text
