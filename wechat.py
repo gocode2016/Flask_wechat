@@ -13,15 +13,16 @@ app = Flask(__name__)
 def index():
     if request.method == 'GET':
         token = 'sdfrhgcfb452135'
-        data = json.dumps(request.args)
-        timestamp = data['timestamp']
-        nonce = data['nonce']
-        echostr = data['echostr']
-        signature = data['signature']
+        data = request.args
+        timestamp = data.get('timestamp')
+        nonce = data.get('nonce')
+        echostr = data.get('echostr')
+        signature = data.get('signature')
 
-        l = [timestamp,nonce,echostr].sort()
+        l = [timestamp,nonce,token]
+        l.sort()
         mes = ''.join(l)
-        sha1 = hashlib.sha1(mes).hexdigest()
+        sha1 = hashlib.sha1(mes.encode('utf-8')).hexdigest()
         if sha1 == signature :
             return echostr
         else:
