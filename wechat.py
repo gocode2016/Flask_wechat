@@ -26,7 +26,14 @@ def index():
         if sha1 == signature :
             return echostr
         else:
-            return None
+            res = '''<xml>
+                        <ToUserName><![CDATA[粉丝号]]></ToUserName>
+                        <FromUserName><![CDATA[公众号]]></FromUserName>
+                        <CreateTime>1460541339</CreateTime>
+                        <MsgType><![CDATA[text]]></MsgType>
+                        <Content><![CDATA[你好呀]]></Content>
+                    </xml>'''
+            return res
 
     if request.method == 'POST':
         return ''
