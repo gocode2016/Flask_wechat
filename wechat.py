@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 import hashlib
 import json
+import time
 from flask import Flask,request
+import xml.etree.ElementTree as et
+
 
 app = Flask(__name__)
-
-
 
 
 @app.route('/',methods=['GET','POST'])
@@ -26,17 +27,26 @@ def index():
         if sha1 == signature :
             return echostr
         else:
-            res = '''<xml>
-                        <ToUserName><![CDATA[粉丝号]]></ToUserName>
-                        <FromUserName><![CDATA[公众号]]></FromUserName>
-                        <CreateTime>1460541339</CreateTime>
-                        <MsgType><![CDATA[text]]></MsgType>
-                        <Content><![CDATA[你好呀]]></Content>
-                    </xml>'''
-            return res
+            return ''
 
     if request.method == 'POST':
-        return ''
+        xml_data = et.fromstring(request.args)
+        ToUserName = xml_rec.find('ToUserName').text
+        fromUser = xml_rec.find('FromUserName').text
+        MsgType = xml_rec.find('MsgType').text
+        Content = xml_rec.find('Content').text
+        MsgId = xml_rec.find('MsgId').text
+        print(ToUserName,fromUser,Content,MsgId)
+
+        res = '''<xml>
+                    <ToUserName><![CDATA[%]]></ToUserName>
+                    <FromUserName><![CDATA[%]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[text]]></MsgType>
+                    <Content><![CDATA[你好呀]]></Content>
+                </xml>'''
+        return res % (fromUser, ToUserName, int(time.time()))
+
 
 if  __name__=='__main__':
     app.run('0.0.0.0',80,debug=True)
