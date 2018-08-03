@@ -43,7 +43,7 @@ def index():
                     <FromUserName><![CDATA[%s]]></FromUserName>
                     <CreateTime>%s</CreateTime>
                     <MsgType><![CDATA[text]]></MsgType>
-                    <Content><![CDATA[你好呀]]></Content>
+                    <Content><![CDATA[欢迎来到真战三国]]></Content>
                 </xml>'''
         return res % (fromUser, ToUserName, int(time.time()))
 
