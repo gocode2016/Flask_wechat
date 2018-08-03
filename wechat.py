@@ -39,8 +39,8 @@ def index():
         print(ToUserName,fromUser,Content,MsgId)
 
         res = '''<xml>
-                    <ToUserName><![CDATA[%]]></ToUserName>
-                    <FromUserName><![CDATA[%]]></FromUserName>
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
                     <CreateTime>%s</CreateTime>
                     <MsgType><![CDATA[text]]></MsgType>
                     <Content><![CDATA[你好呀]]></Content>
