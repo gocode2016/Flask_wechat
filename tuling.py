@@ -32,12 +32,12 @@ class Chat(object):
             post = requests.post('http://openapi.tuling123.com/openapi/api/v2', data=data1, timeout=5)
             answer = post.json()['results'][0]['values']['text']
         except:
-            answer = 'success'
+            return 'success'
         res = '''<xml>
                     <ToUserName><![CDATA[%s]]></ToUserName>
                     <FromUserName><![CDATA[%s]]></FromUserName>
                     <CreateTime>%s</CreateTime>
-                    <MsgType><![CDATA[voice]]></MsgType>
+                    <MsgType><![CDATA[text]]></MsgType>
                     <Content><![CDATA[%s]]></Content>
                 </xml>'''
         return res % (self.fromUser, self.ToUserName, int(time.time()), answer)
@@ -60,7 +60,7 @@ class Chat(object):
                     <ToUserName><![CDATA[%s]]></ToUserName>
                     <FromUserName><![CDATA[%s]]></FromUserName>
                     <CreateTime>%s</CreateTime>
-                    <MsgType><![CDATA[text]]></MsgType>
+                    <MsgType><![CDATA[voice]]></MsgType>
                     <MediaId>< ![CDATA[%s]]></MediaId>
                     <Format>< ![CDATA[%s]]></Format>
                  </xml>'''
@@ -68,9 +68,4 @@ class Chat(object):
 
 
 if  __name__=='__main__':
-    data = {"reqType": 0, "perception": {"inputMedia": {"url": self.MediaId}, },
-            "userInfo": {"apiKey": "4a8d5245cbfc491bb9468a978e186114", "userId": "303496"}}
-    data1 = json.dumps(data)
-    post = requests.post('http://openapi.tuling123.com/openapi/api/v2', data=data1, timeout=5)
-    answer = post.json()['results'][0]['values']['url']
-    print(answer)
+    pass
