@@ -7,13 +7,13 @@ import time
 
 class Chat(object):
 
-    def __init__(self,reqeust):
+    def __init__(self, request):
         self.xml_data = et.fromstring(request.data)
-        self.ToUserName = xml_data.find('ToUserName').text
-        self.fromUser = xml_data.find('FromUserName').text
-        self.MsgType = xml_data.find('MsgType').text
-        self.Content = xml_data.find('Content').text
-        self.MsgId = xml_data.find('MsgId').text
+        self.ToUserName = self.xml_data.find('ToUserName').text
+        self.fromUser = self.xml_data.find('FromUserName').text
+        self.MsgType = self.xml_data.find('MsgType').text
+        self.Content = self.xml_data.find('Content').text
+        self.MsgId = self.xml_data.find('MsgId').text
 
     def text(self):
         '''xml_data = et.fromstring(request.data)
@@ -43,4 +43,4 @@ class Chat(object):
 
 
 if  __name__=='__main__':
-    pass
+    a = Chat([1,2,3])
