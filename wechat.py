@@ -33,11 +33,11 @@ def index():
         mes = Chat(request)
         xml_data = et.fromstring(request.data)  #text,image,voice,video,shortvideo,location,link] 消息类型
 
-        if  xml_data['MsgType'] == 'text':
+        if  xml_data.find('MsgType').text == 'text':
             res = mes.text()
-        elif  xml_data['MsgType'] == 'image':
+        elif  xml_data.find('MsgType').text == 'image':
             res = mes.image()
-        elif  xml_data['MsgType'] == 'voice':
+        elif  xml_data.find('MsgType').text == 'voice':
             res = mes.voice()
         else:
             return 'success'

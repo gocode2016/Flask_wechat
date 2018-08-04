@@ -9,12 +9,12 @@ class Chat(object):
 
     def __init__(self, request):
         self.xml_data = et.fromstring(request.data)  #text,image,voice,video,shortvideo,location,link] 消息类型
-        if  self.xml_data['MsgType'] == 'text':
+        if  self.xml_data.find('MsgType').text == 'text':
             self.Content = self.xml_data.find('Content').text
-        elif    self.xml_data['MsgType'] == 'image':
+        elif    self.xml_data.find('MsgType').text == 'image':
             self.PicUrl =   self.xml_data.find('PicUrl').text
             self.MediaId = self.xml_data.find('MediaId').text
-        elif    self.xml_data['MsgType'] == 'voice':
+        elif    self.xml_data.find('MsgType').text == 'voice':
             self.MediaId = self.xml_data.find('MediaId').text
             self.Format = self.xml_data.find('Format').text
         else:
