@@ -31,7 +31,16 @@ def index():
 
     if request.method == 'POST':
         mes = Chat(request)
-        res = mes.text()
+        xml_data = et.fromstring(request.data)  #text,image,voice,video,shortvideo,location,link] 消息类型
+
+        if  xml_data['MsgType'] == 'text':
+            res = mes.text()
+        elif  xml_data['MsgType'] == 'image':
+            res = mes.image()
+        elif  xml_data['MsgType'] == 'voice':
+            res = mes.voice()
+        else:
+            return 'success'
         return res
 
 if  __name__=='__main__':
