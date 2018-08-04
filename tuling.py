@@ -21,9 +21,11 @@ def chat(request):
             "userInfo": {"apiKey": "4a8d5245cbfc491bb9468a978e186114","userId": "303496"}
            }
     data1 =json.dumps(data)
-    res = requests.post('http://openapi.tuling123.com/openapi/api/v2',data=data1)
-    answer =  res.json()['results'][0]['values']['text']
-
+    try:
+        post = requests.post('http://openapi.tuling123.com/openapi/api/v2',data=data1,timeout=1)
+        answer =  post.json()['results'][0]['values']['text']
+    except:
+        answer = 'success'
 
     res = '''<xml>
                 <ToUserName><![CDATA[%s]]></ToUserName>
