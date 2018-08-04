@@ -3,6 +3,7 @@
 import requests
 import json
 import xml.etree.ElementTree as et
+import time
 
 def chat(request):
 
@@ -33,5 +34,5 @@ def chat(request):
             </xml>'''
     return res % (fromUser, ToUserName, int(time.time()),answer)
 
-if __name__=='__main__':
+if  __name__=='__main__':
     pass

@@ -5,7 +5,7 @@ import json
 import time
 from flask import Flask,request
 import xml.etree.ElementTree as et
-from .tuling import  chat
+from tuling import  chat
 
 app = Flask(__name__)
 
@@ -31,6 +31,7 @@ def index():
 
     if request.method == 'POST':
         res = chat(request)
+        return res
 
 if  __name__=='__main__':
     app.run('0.0.0.0',80,debug=True)
