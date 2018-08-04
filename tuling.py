@@ -44,7 +44,15 @@ class Chat(object):
 
 
     def image(self):
-        pass
+        res = '''<xml>
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[image]]></MsgType>
+                    <PicUrl>< ![CDATA[%s] ]></PicUrl>
+                    <MediaId>< ![CDATA[%s]]></MediaId>
+                 </xml>'''
+        return res % (self.fromUser, self.ToUserName, int(time.time()),self.PicUrl,self.MediaId)
 
 
 
