@@ -5,7 +5,7 @@ import json
 import time
 from flask import Flask,request
 import xml.etree.ElementTree as et
-
+from .tuling import  chat
 
 app = Flask(__name__)
 
@@ -30,23 +30,7 @@ def index():
             return ''
 
     if request.method == 'POST':
-        xml_data = et.fromstring(request.data)
-        ToUserName = xml_data.find('ToUserName').text
-        fromUser = xml_data.find('FromUserName').text
-        MsgType = xml_data.find('MsgType').text
-        Content = xml_data.find('Content').text
-        MsgId = xml_data.find('MsgId').text
-        print(ToUserName,fromUser,Content,MsgId)
-
-        res = '''<xml>
-                    <ToUserName><![CDATA[%s]]></ToUserName>
-                    <FromUserName><![CDATA[%s]]></FromUserName>
-                    <CreateTime>%s</CreateTime>
-                    <MsgType><![CDATA[text]]></MsgType>
-                    <Content><![CDATA[欢迎来到真战三国]]></Content>
-                </xml>'''
-        return res % (fromUser, ToUserName, int(time.time()))
-
+        res = chat(request)
 
 if  __name__=='__main__':
     app.run('0.0.0.0',80,debug=True)
