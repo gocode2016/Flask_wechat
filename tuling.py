@@ -53,7 +53,7 @@ class Chat(object):
                     <MediaId><![CDATA[%s]]></MediaId>
                     </Image>
                  </xml>'''
-        return res % (self.fromUser, self.ToUserName, int(time.time()),self.PicUrl,self.MediaId)
+        return res % (self.fromUser, self.ToUserName, int(time.time()),self.MediaId)
 
 
 
