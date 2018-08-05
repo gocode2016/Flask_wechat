@@ -18,7 +18,7 @@ def get_access_token():
 
 if __name__=='__main__':
 
-    schedule.every(2).hours.do(get_access_token())
+    schedule.every(2).hours.do(get_access_token)
     while True:                                         ### 每30秒检查一次时间
         schedule.run_pending()
         print(datetime.datetime.now())
