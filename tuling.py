@@ -49,8 +49,9 @@ class Chat(object):
                     <FromUserName><![CDATA[%s]]></FromUserName>
                     <CreateTime>%s</CreateTime>
                     <MsgType><![CDATA[image]]></MsgType>
-                    <PicUrl>< ![CDATA[%s] ]></PicUrl>
+                    <Image>
                     <MediaId><![CDATA[%s]]></MediaId>
+                    </Image>
                  </xml>'''
         return res % (self.fromUser, self.ToUserName, int(time.time()),self.PicUrl,self.MediaId)
 
@@ -69,7 +70,7 @@ class Chat(object):
                     <FromUserName><![CDATA[%s]]></FromUserName>
                     <CreateTime>%s</CreateTime>
                     <MsgType><![CDATA[voice]]></MsgType>
-                    <MediaId>< ![CDATA[%s]]></MediaId>
+                    <MediaId><![CDATA[%s]]></MediaId>
                     <Format>< ![CDATA[%s]]></Format>
                  </xml>'''
         return res % (self.fromUser, self.ToUserName, int(time.time()),answer,self.Format)
