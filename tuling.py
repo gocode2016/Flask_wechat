@@ -50,7 +50,7 @@ class Chat(object):
                     <CreateTime>%s</CreateTime>
                     <MsgType><![CDATA[image]]></MsgType>
                     <PicUrl>< ![CDATA[%s] ]></PicUrl>
-                    <MediaId>< ![CDATA[%s]]></MediaId>
+                    <MediaId><![CDATA[%s]]></MediaId>
                  </xml>'''
         return res % (self.fromUser, self.ToUserName, int(time.time()),self.PicUrl,self.MediaId)
 
