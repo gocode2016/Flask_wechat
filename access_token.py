@@ -12,7 +12,7 @@ Appsecret = "fbff6ed16c87fdbce8dce1dbaf316624"
 def get_access_token():
     at = time.time()
     access_token = requests.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s' % (Appid,Appsecret)).json()
-    with open('access_token.txt','w') as f:
+    with open('static/access_token.txt','w') as f:
         print(access_token['access_token'],file=f)
     return access_token
 
