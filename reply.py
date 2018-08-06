@@ -76,5 +76,16 @@ class Chat(object):
         return res % (self.fromUser, self.ToUserName, int(time.time()),answer,self.Format)
 
 
+    def event(self):
+        res = '''<xml>
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[text]]></MsgType>
+                    <Content><![CDATA[%s]]></Content>
+                </xml>'''
+        return res % (self.fromUser, self.ToUserName, int(time.time()), '官人，你来啦')
+
+
 if  __name__=='__main__':
     pass

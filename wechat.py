@@ -39,6 +39,8 @@ def index():
             res = mes.image()
         elif  xml_data.find('MsgType').text == 'voice':
             res = mes.voice()
+        elif xml_data.find('MsgType').text == 'event':
+            res = mes.event()
         else:
             return 'success'
         return res
