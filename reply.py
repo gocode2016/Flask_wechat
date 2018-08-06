@@ -23,7 +23,6 @@ class Chat(object):
         self.ToUserName = self.xml_data.find('ToUserName').text
         self.fromUser = self.xml_data.find('FromUserName').text
         self.MsgType = self.xml_data.find('MsgType').text
-        self.MsgId = self.xml_data.find('MsgId').text
 
     def text(self):
         data = { "reqType": 0,"perception": {"inputText": {"text": self.Content}, },"userInfo": {"apiKey": "4a8d5245cbfc491bb9468a978e186114", "userId": "303496"}}
