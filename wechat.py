@@ -5,7 +5,7 @@ import json
 import time
 from flask import Flask,request
 import xml.etree.ElementTree as et
-from tuling import  Chat
+from reply import  Chat
 
 app = Flask(__name__)
 
