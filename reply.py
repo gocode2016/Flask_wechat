@@ -85,10 +85,9 @@ class Chat(object):
                 </xml>'''
 
         if self.xml_data.find('EventKey').text == 'chat_id':
-
             return res % (self.fromUser, self.ToUserName, int(time.time()), '官人，你来啦')
         else:
-            return 'success'
+            return res % (self.fromUser, self.ToUserName, int(time.time()), '官人，礼包功能还未开放哦')
 
 if  __name__=='__main__':
     pass
