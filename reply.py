@@ -83,8 +83,12 @@ class Chat(object):
                     <MsgType><![CDATA[text]]></MsgType>
                     <Content><![CDATA[%s]]></Content>
                 </xml>'''
-        return res % (self.fromUser, self.ToUserName, int(time.time()), '官人，你来啦')
 
+        if self.xml_data.find('EventKey').text == 'chat_id':
+
+            return res % (self.fromUser, self.ToUserName, int(time.time()), '官人，你来啦')
+        else:
+            return 'success'
 
 if  __name__=='__main__':
     pass
